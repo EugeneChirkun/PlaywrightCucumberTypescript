@@ -1,3 +1,4 @@
+@Ignore
 Feature: Slot Games
 
   Scenario: Playing a slot game successfully

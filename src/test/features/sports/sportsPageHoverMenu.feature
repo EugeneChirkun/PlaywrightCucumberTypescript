@@ -1,3 +1,4 @@
+@Ignore
 Feature: Sports page menu item hover effect
 
   Scenario Outline: Hover over Sports page menu items

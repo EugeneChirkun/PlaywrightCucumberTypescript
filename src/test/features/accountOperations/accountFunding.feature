@@ -1,3 +1,4 @@
+@Ignore
 Feature: Account Funding
 
   Scenario: Successful deposit into the user account

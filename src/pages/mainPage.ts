@@ -1,6 +1,7 @@
 import { expect } from '@playwright/test';
 import { Page, BrowserContext, Locator } from 'playwright';
-import BasePage from "./BasePage";
+import BasePage from './basePage'
+import LvBetActive from './modals/lvBetActive';
 
 export default class MainPage extends BasePage {
     public page: Page;
@@ -40,5 +41,45 @@ export default class MainPage extends BasePage {
     async openGamburgerMenu() {
         await expect(this.topNavBar.hamburgerMenu).toBeEnabled();
         await this.topNavBar.hamburgerMenu.click()
+    }
+
+    async isUserOnMainPage() {
+        await expect(this.page).toHaveURL(/casino/);
+        await this.page.pause();
+    }
+
+    async clickOnTopNavBarMenuItem(menuItem: string) {
+        await expect(this.topNavBar.liveCasinoBtn).toBeVisible();
+        let lvBetActive = new LvBetActive(this.page, this.context);
+
+        switch (menuItem) {
+            case 'Slots':
+                await this.topNavBar.slotsBtn.click();
+                await lvBetActive.continueWithoutLoginIfVisible();
+                await expect(this.page).toHaveURL(/slots/);
+                break;
+            case 'Live Casino':
+                await this.topNavBar.liveCasinoBtn.click();
+                await lvBetActive.continueWithoutLoginIfVisible();
+                await expect(this.page).toHaveURL(/live-casino/);
+                break;
+            case 'Sports':
+                await this.topNavBar.sportsBtn.click();
+                await lvBetActive.continueWithoutLoginIfVisible();
+                await expect(this.page).toHaveURL(/sports/);
+                break;
+            case 'Tournaments':
+                await this.topNavBar.tournamentsBtn.click();
+                await lvBetActive.continueWithoutLoginIfVisible();
+                await expect(this.page).toHaveURL(/tournaments/);
+                break;
+            case 'Promotions':
+                await this.topNavBar.promotionsBtn.click();
+                await lvBetActive.continueWithoutLoginIfVisible();
+                await expect(this.page).toHaveURL(/casino-bonus/);
+                break;
+            default:
+                throw new Error(`No matching ${menuItem} page not found`);
+        }
     }
 }

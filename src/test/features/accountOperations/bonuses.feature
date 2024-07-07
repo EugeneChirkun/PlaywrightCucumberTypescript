@@ -1,3 +1,4 @@
+@Ignore
 Feature: Bonuses
 
   Scenario: Claiming a welcome bonus

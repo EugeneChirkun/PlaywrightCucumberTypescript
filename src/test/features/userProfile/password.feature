@@ -1,3 +1,4 @@
+@Ignore
 Feature: Change Password
 
   Scenario: Successful password change

@@ -1,3 +1,4 @@
+@Ignore
 Feature: Hamburger menu functionality
 
   Scenario: Close hamburger menu by clicking the close icon

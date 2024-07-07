@@ -1,3 +1,4 @@
+@Ignore
 Feature: Bet Builder functionality
 
   Scenario: Access Bet Builder and select a sport

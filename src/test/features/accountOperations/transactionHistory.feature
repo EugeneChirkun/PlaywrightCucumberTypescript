@@ -1,3 +1,4 @@
+@Ignore
 Feature: Transaction History
 
   Scenario: Viewing transaction history

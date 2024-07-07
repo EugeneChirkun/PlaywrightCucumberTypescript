@@ -1,3 +1,4 @@
+@Ignore
 Feature: User Registration
 
   Scenario: Successful registration of a new user

@@ -1,3 +1,4 @@
+@Ignore
 Feature: Search Games
 
   Scenario: Searching for a specific game

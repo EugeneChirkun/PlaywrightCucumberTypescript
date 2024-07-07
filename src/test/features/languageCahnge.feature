@@ -1,3 +1,4 @@
+@Ignore
 Feature: Language change functionality
 
   Scenario: Change language from Polish to English

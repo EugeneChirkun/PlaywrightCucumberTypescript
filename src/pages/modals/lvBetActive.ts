@@ -21,6 +21,12 @@ export default class LvBetActive extends BasePage {
         await this.continueWithoutLoginBtn.click();
     }
 
+    async continueWithoutLoginIfVisible() {
+        if (await this.continueWithoutLoginBtn.isVisible()) {
+            await this.continueWithoutLoginBtn.click();
+        }
+    }
+
     async goToLvBetPl() {
         await expect(this.goToLvBetPlBtn).toBeEnabled();
         await this.goToLvBetPlBtn.click();
