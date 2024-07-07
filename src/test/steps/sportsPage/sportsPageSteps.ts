@@ -4,6 +4,9 @@ import { expect } from "playwright/test";
 import SportsMainPage from '../../../pages/sports/sportsMainPage';
 
 Then('the user should be redirected to the Sports page', async function (this: CustomWorld) {
+    await this.page?.waitForLoadState('domcontentloaded');
+    await this.allPagesObj?.lvBetActive.continueWithoutLoginIfVisible();
+    await this.allPagesObj?.cookiesModal.acceptCookiesIfVisible();
     await this.allPagesObj?.sportsMainPage.isUserOnSportsMainPage();
 });
 

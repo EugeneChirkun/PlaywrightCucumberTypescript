@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { Page, BrowserContext, Locator } from 'playwright';
-import BasePage from "../BasePage";
+import BasePage from "../basePage";
 
 
 export default class LvBetActive extends BasePage {
@@ -12,8 +12,8 @@ export default class LvBetActive extends BasePage {
     constructor(page: Page, context: BrowserContext) {
         super(page, context);
 
-        this.continueWithoutLoginBtn = page.locator('[data-e2e="without-logging-in"]');
-        this.goToLvBetPlBtn = page.locator('[data-e2e="redirect-lvbet-pl"]');
+        this.continueWithoutLoginBtn = page.getByTestId('without-logging-in');
+        this.goToLvBetPlBtn = page.getByTestId('redirect-lvbet-pl');
     }
 
     async continueWithoutLogin() {

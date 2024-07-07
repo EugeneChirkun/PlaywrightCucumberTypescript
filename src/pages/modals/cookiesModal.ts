@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { Page, BrowserContext, Locator } from 'playwright';
-import BasePage from "../BasePage";
+import BasePage from "../basePage";
 
 
 export default class CookiesModal extends BasePage {
@@ -27,5 +27,11 @@ export default class CookiesModal extends BasePage {
 
     async isCookiesMsgIsVisible() {
         await expect(this.cookiesPolicyHeader).toBeVisible();
+    }
+
+    async acceptCookiesIfVisible() {
+        if (await this.isCookiesMsgIsVisible) {
+            await this.acceptCookiesBtn.click();
+        }
     }
 }

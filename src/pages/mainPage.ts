@@ -45,7 +45,6 @@ export default class MainPage extends BasePage {
 
     async isUserOnMainPage() {
         await expect(this.page).toHaveURL(/casino/);
-        await this.page.pause();
     }
 
     async clickOnTopNavBarMenuItem(menuItem: string) {

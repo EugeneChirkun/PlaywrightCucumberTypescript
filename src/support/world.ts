@@ -7,6 +7,8 @@ export default class CustomWorld extends World {
     page?: Page;
 
     public allPagesObj?: ReturnType<typeof getAllPages>;
+    
+    public isDebugMode = [undefined, 'False'].includes(process.env.DEBUG) === false;
 
 }
 
