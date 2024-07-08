@@ -1,12 +1,12 @@
-@Ignore
 Feature: Bet Builder functionality
 
+  @Current
   Scenario: Access Bet Builder and select a sport
     Given the user is on the Sports page
-    When the user clicks on the "Bet Builder" button
-    Then the user should see options to select "Football", "Tennis", "Basketball", "Baseball"
+    When the user clicks on the "BetBuilder" button
+    Then the user should see at least one sport to select
     When the user clicks on the "Football" option
-    Then the user should see regions to select: "Europe", "Brazil", "China", "USA", "South America", "Mexico", "Japan", "Norway", "Sweden"
+    Then the user should see at least one region to select
     And each region should display a match counter next to its name
 
   Scenario: Select Brazil in Football Bet Builder

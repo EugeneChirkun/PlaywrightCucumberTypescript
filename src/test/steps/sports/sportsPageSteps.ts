@@ -82,3 +82,32 @@ Then('the {} should change its background color to yellow {}', async function (t
 
     expect(hoverColor).toBe(colorToCheck);
 });
+
+When('the user clicks on the {string} button', async function (this: CustomWorld, menuItem: string) {
+    switch (menuItem) {
+        case 'Sports':
+            await this.allPagesObj?.sportsMainPage.getSportsTopNavBar()?.sports.click();
+            break;
+        case 'BetBuilder':
+            await this.allPagesObj?.sportsMainPage.getSportsTopNavBar()?.betBuilder.click();
+            break;
+        case 'In-play':
+            await this.allPagesObj?.sportsMainPage.getSportsTopNavBar()?.inPlay.click();
+            break;
+        case 'Virtual':
+            await this.allPagesObj?.sportsMainPage.getSportsTopNavBar()?.virtual.click();
+            break;
+        case 'Casino':
+            await this.allPagesObj?.sportsMainPage.getSportsTopNavBar()?.casino.click();
+            break;
+        case 'Live casino':
+            await this.allPagesObj?.sportsMainPage.getSportsTopNavBar()?.liveCasino.click();
+            break;
+        case 'LV Bet Pot':
+            await this.allPagesObj?.sportsMainPage.getSportsTopNavBar()?.lvBetPot.click();
+            break;
+
+        default:
+            throw new Error(`No matching ${menuItem} menu item found`);
+    }
+});

@@ -75,7 +75,7 @@ export default class SportsMainPage extends BasePage {
                 break;
 
             default:
-                throw new Error(`No matching ${itemName} page not found`);
+                throw new Error(`No matching ${itemName} page found`);
         }
 
     }

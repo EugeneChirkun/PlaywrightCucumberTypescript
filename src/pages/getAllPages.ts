@@ -8,10 +8,10 @@ import MainPageHamburger from './menus/mainPageHamburger';
 import SportsMainPage from './sports/sportsMainPage'
 import SearchPage from "./menus/searchPage";
 import GamesMainPage from "./games/gamesMainPage";
+import BetBuilderPage from "./sports/betBuilderPage";
 
 
 function getAllPages(page: Page, context: BrowserContext) {
-
     return {
         basePage: new BasePage(page, context),
         mainPage: new MainPage(page, context),
@@ -21,6 +21,7 @@ function getAllPages(page: Page, context: BrowserContext) {
         sportsMainPage: new SportsMainPage(page, context),
         searchPage: new SearchPage(page, context),
         gamesMainPage: new GamesMainPage(page, context),
+        betBuilderPage: new BetBuilderPage(page, context),
     };
 }
 
