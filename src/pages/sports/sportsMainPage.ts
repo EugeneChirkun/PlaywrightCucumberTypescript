@@ -48,7 +48,7 @@ export default class SportsMainPage extends BasePage {
             case 'Sports':
                 await expect(this.sportsTopNavBar.sports).toBeVisible;
                 break;
-            case 'Betbuilder':
+            case 'BetBuilder':
                 await expect(this.sportsTopNavBar.betBuilder).toBeVisible;
                 break;
             case 'In-play':
@@ -57,7 +57,7 @@ export default class SportsMainPage extends BasePage {
             case 'Virtual':
                 await expect(this.sportsTopNavBar.virtual).toBeVisible;
                 break;
-            case 'Esport':
+            case 'E-Sport':
                 await expect(this.sportsTopNavBar.eSport).toBeVisible;
                 break;
             case 'Casino':

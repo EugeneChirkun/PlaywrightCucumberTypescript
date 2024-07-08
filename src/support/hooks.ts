@@ -42,7 +42,7 @@ selectors.setTestIdAttribute('data-e2e');
 setDefaultTimeout(3 * 60 * 1000); // Sets the default timeout for steps
 
 const browserOptions: LaunchOptions = {
-    headless: false
+    headless: true
 };
 
 BeforeAll(async function () {
@@ -89,13 +89,17 @@ Before({ tags: '@Debug' }, async function (this: CustomWorld) {
     this.isDebugMode = true;
 });
 
-Before({ tags: '@Sports or @NonAuth' }, async function (this: CustomWorld) {
+Before({ tags: '@NonAuth' }, async function (this: CustomWorld) {
     await chromium.launch(browserOptions);
     await this.allPagesObj?.mainPage.navigateToMain();
     await this.allPagesObj?.cookiesModal.acceptCookiesIfVisible();
     await this.allPagesObj?.lvBetActive.continueWithoutLogin();
 });
 
+After(async function (this: CustomWorld) {
+    await this.page?.close();
+    await this.context?.close()
+});
 
 AfterAll(async function () {
     await global.apiContext?.dispose();

@@ -6,6 +6,8 @@ import CookiesModal from './modals/cookiesModal';
 import LvBetActive from './modals/lvBetActive';
 import MainPageHamburger from './menus/mainPageHamburger';
 import SportsMainPage from './sports/sportsMainPage'
+import SearchPage from "./menus/searchPage";
+import GamesMainPage from "./games/gamesMainPage";
 
 
 function getAllPages(page: Page, context: BrowserContext) {
@@ -16,7 +18,9 @@ function getAllPages(page: Page, context: BrowserContext) {
         cookiesModal: new CookiesModal(page, context),
         lvBetActive: new LvBetActive(page, context),
         mainPageHamburger: new MainPageHamburger(page, context),
-        sportsMainPage: new SportsMainPage(page, context)
+        sportsMainPage: new SportsMainPage(page, context),
+        searchPage: new SearchPage(page, context),
+        gamesMainPage: new GamesMainPage(page, context),
     };
 }
 

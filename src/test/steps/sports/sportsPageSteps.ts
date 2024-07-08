@@ -1,7 +1,5 @@
-import { DataTable, Given, Then, When } from '@cucumber/cucumber';
+import {DataTable, Then, When} from '@cucumber/cucumber';
 import CustomWorld from '../../../support/world';
-import { expect } from "playwright/test";
-import SportsMainPage from '../../../pages/sports/sportsMainPage';
 
 Then('the user should be redirected to the Sports page', async function (this: CustomWorld) {
     await this.page?.waitForLoadState('domcontentloaded');

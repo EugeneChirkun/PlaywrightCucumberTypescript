@@ -2,7 +2,6 @@ import { expect } from '@playwright/test';
 import { Page, BrowserContext, Locator } from 'playwright';
 import BasePage from "../basePage";
 import CustomWorld from '../../support/world';
-import getAllPages from '../getAllPages';
 import LvBetActive from '../modals/lvBetActive';
 
 export default class MainPageHamburger extends BasePage {

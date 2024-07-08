@@ -1,6 +1,5 @@
-import { DataTable, Given, Then, When } from '@cucumber/cucumber';
+import {Given, When} from '@cucumber/cucumber';
 import CustomWorld from '../../../support/world';
-import { expect } from "playwright/test";
 
 Given('the user is on the LVBet home page', async function (this: CustomWorld) {
     await this.allPagesObj?.mainPage.isUserOnMainPage();

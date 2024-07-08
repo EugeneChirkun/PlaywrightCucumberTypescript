@@ -18,6 +18,8 @@ export default class MainPage extends BasePage {
     private loginBtn: Locator;
     private registerBtn: Locator;
 
+    private searchField: Locator;
+
     constructor(page: Page, context: BrowserContext) {
         super(page, context);
 
@@ -32,6 +34,8 @@ export default class MainPage extends BasePage {
 
         this.loginBtn = page.getByLabel('Log in');
         this.registerBtn = page.getByRole('link', { name: 'Register' });
+
+        this.searchField = page.locator('#searching');
     }
 
     async navigateToMain() {
@@ -80,5 +84,9 @@ export default class MainPage extends BasePage {
             default:
                 throw new Error(`No matching ${menuItem} page not found`);
         }
+    }
+
+    async initiateSearch() {
+        await this.searchField.click();
     }
 }
