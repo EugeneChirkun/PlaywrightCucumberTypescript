@@ -1,4 +1,4 @@
-import {Then, When} from '@cucumber/cucumber';
+import { Then, When } from '@cucumber/cucumber';
 import CustomWorld from '../../../support/world';
 
 When('the user enters the name of a game {string} in the search bar', async function (this: CustomWorld, gameName: string) {

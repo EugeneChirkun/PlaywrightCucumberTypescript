@@ -1,4 +1,4 @@
-@NonAuth @Current
+@NonAuth
 Feature: Search Games
 
   Scenario Outline: Searching for a specific game
@@ -18,4 +18,3 @@ Feature: Search Games
       | "Sweet Reward"    |
       | "Starburst"       |
       | "Money Train 4"   |
-

@@ -1,4 +1,4 @@
-import {Given, When} from '@cucumber/cucumber';
+import { Given, When } from '@cucumber/cucumber';
 import CustomWorld from '../../../support/world';
 
 Given('the user is on the LVBet home page', async function (this: CustomWorld) {

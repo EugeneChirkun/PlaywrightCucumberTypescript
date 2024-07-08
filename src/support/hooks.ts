@@ -42,7 +42,7 @@ selectors.setTestIdAttribute('data-e2e');
 setDefaultTimeout(3 * 60 * 1000); // Sets the default timeout for steps
 
 const browserOptions: LaunchOptions = {
-    headless: true
+    headless: false
 };
 
 BeforeAll(async function () {

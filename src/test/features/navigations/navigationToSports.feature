@@ -1,4 +1,4 @@
-@Sports @NonAuth @Current
+@Sports @NonAuth
 Feature: Navigation to Sports page via hamburger menu
 
   Scenario: Access Sports page through hamburger menu

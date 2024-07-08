@@ -1,4 +1,4 @@
-import {BrowserContext, Page} from 'playwright';
+import { BrowserContext, Page } from 'playwright';
 
 import BasePage from './basePage';
 import MainPage from './mainPage';

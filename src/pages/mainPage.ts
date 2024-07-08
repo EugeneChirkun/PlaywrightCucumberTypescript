@@ -2,6 +2,7 @@ import { expect } from '@playwright/test';
 import { Page, BrowserContext, Locator } from 'playwright';
 import BasePage from './basePage'
 import LvBetActive from './modals/lvBetActive';
+import * as consts from '../testData/constants/consts'
 
 export default class MainPage extends BasePage {
     public page: Page;
@@ -39,7 +40,7 @@ export default class MainPage extends BasePage {
     }
 
     async navigateToMain() {
-        await this.page.goto('https://lvbet.com/');
+        await this.page.goto(consts.APP_BASE_URL);
     }
 
     async openGamburgerMenu() {

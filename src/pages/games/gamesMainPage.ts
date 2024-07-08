@@ -1,6 +1,6 @@
 import BasePage from "../basePage";
-import {BrowserContext, Page} from "playwright";
-import {expect} from "@playwright/test";
+import { BrowserContext, Page } from "playwright";
+import { expect } from "@playwright/test";
 
 export default class GamesMainPage extends BasePage {
     public page: Page;

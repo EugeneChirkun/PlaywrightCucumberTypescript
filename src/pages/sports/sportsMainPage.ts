@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
-import { Page, BrowserContext, Locator } from 'playwright';
+import { BrowserContext, Locator, Page } from 'playwright';
 import BasePage from "../basePage";
-import LvBetActive from '../modals/lvBetActive';
+import * as consts from "../../testData/constants/consts";
 
 export default class SportsMainPage extends BasePage {
     public page: Page;
@@ -40,9 +40,13 @@ export default class SportsMainPage extends BasePage {
         return this.sportsTopNavBar;
     }
 
+    async navigateToSports() {
+        await this.page.goto(`${consts.APP_BASE_URL}sports`);
+
+    }
+
     public async isTopNavBarItemVisible(itemName: string) {
         await expect(this.sportsTopNavBar.sports).toBeVisible();
-        let lvBetActive = new LvBetActive(this.page, this.context);
 
         switch (itemName) {
             case 'Sports':

@@ -1,6 +1,6 @@
 import BasePage from "../basePage";
-import {BrowserContext, Locator, Page} from "playwright";
-import {expect} from "@playwright/test";
+import { BrowserContext, Locator, Page } from "playwright";
+import { expect } from "@playwright/test";
 
 export default class SearchPage extends BasePage {
     public page: Page;

@@ -20,7 +20,6 @@ Feature: Bet Builder functionality
     Then the user should see a list of upcoming matches
     And the user should see the series title "BRAZILIAN SERIE B"
 
-
   Scenario Outline: Select region in Football Bet Builder
     Given the user is in the Football section of Bet Builder
     When the user clicks on the "<Region>" region
@@ -30,35 +29,33 @@ Feature: Bet Builder functionality
     And if there are live matches, they should be indicated as live
 
     Examples:
-      | Region        | Series Title          |
-      | Europe        | EURO                  |
-      | China         | SUPER LEAGUE (CHINA)  |
-      | USA           | MLS                   |
-      | South America | COPA AMERICA          |
-      | Mexico        | LIGA MX               |
-      | Japan         | J1 LEAGUE             |
-      | Norway        | ELITESERIEN           |
-      | Sweden        | ALLSVENSKAN           |
-
+      | Region        | Series Title         |
+      | Europe        | EURO                 |
+      | China         | SUPER LEAGUE (CHINA) |
+      | USA           | MLS                  |
+      | South America | COPA AMERICA         |
+      | Mexico        | LIGA MX              |
+      | Japan         | J1 LEAGUE            |
+      | Norway        | ELITESERIEN          |
+      | Sweden        | ALLSVENSKAN          |
 
   Scenario: Verify presence of the table with headers and rows of games and odds
     Given the user is in the Football section of Bet Builder
     And the user has selected a region "<Region>"
     Then the user should see a table with the following headers:
-      | 1    |
-      | X    |
-      | 2    |
-      | 1X   |
-      | 12   |
-      | X2   |
-      | LINE |
-      | OVER |
-      | UNDER|
+      |     1 |
+      | X     |
+      |     2 |
+      |    1X |
+      |    12 |
+      | X2    |
+      | LINE  |
+      | OVER  |
+      | UNDER |
     And the table should have rows corresponding to games with the following information:
       | Time and date of the game |
       | Teams                     |
       | Odds under each header    |
-
 
   Scenario Outline: Verify single bet displays mini-card and correct Possible winning
     Given the user is in the Football section of Bet Builder
@@ -71,20 +68,18 @@ Feature: Bet Builder functionality
       | Odds                      |
     When the user selects a stake of "<Stake>" euros
     Then the Possible winning should be the product of the selected stake and the odds
-	
-	Examples:
-  | Region        | Column    | Stake |
-  | Europe        | 1         | 10    |
-  | Europe        | X         | 25    |
-  | Europe        | 2         | 50    |
-  | China         | 1X        | 100   |
-  | USA           | 12        | 5     |
-  | South America | X2        | 10    |
-  | Mexico        | LINE      | 25    |
-  | Japan         | OVER      | 50    |
-  | Norway        | UNDER     | 100   |
 
-
+    Examples:
+      | Region        | Column | Stake |
+      | Europe        |      1 |    10 |
+      | Europe        | X      |    25 |
+      | Europe        |      2 |    50 |
+      | China         |     1X |   100 |
+      | USA           |     12 |     5 |
+      | South America | X2     |    10 |
+      | Mexico        | LINE   |    25 |
+      | Japan         | OVER   |    50 |
+      | Norway        | UNDER  |   100 |
 
   Scenario Outline: Place multiple bets on different games with random column selection unlogged
     Given the user is in the Football section of Bet Builder
@@ -107,14 +102,12 @@ Feature: Bet Builder functionality
     Then a dialog box should appear with the E-BETSLIP number
     Then the "log in and place bet" button should be displayed next to the E-BETSLIP button
 
-
-
-Examples:
-  | Region        | Column1 | Column2 | Column3 | Column4 | Stake |
-  | Europe        | 1       | X       | 2       | 1X      | 10    |
-  | China         | 1X      | 12      | X2      | LINE    | 25    |
-  | USA           | OVER    | UNDER   | 1       | X       | 50    |
-  | South America | 2       | 1X      | 12      | X2      | 100   |
-  | Mexico        | LINE    | OVER    | UNDER   | 1       | 5     |
-  | Japan         | X       | 2       | 1X      | 12      | 10    |
-  | Norway        | X2      | LINE    | OVER    | UNDER   | 25    |
+    Examples:
+      | Region        | Column1 | Column2 | Column3 | Column4 | Stake |
+      | Europe        |       1 | X       |       2 |      1X |    10 |
+      | China         |      1X |      12 | X2      | LINE    |    25 |
+      | USA           | OVER    | UNDER   |       1 | X       |    50 |
+      | South America |       2 |      1X |      12 | X2      |   100 |
+      | Mexico        | LINE    | OVER    | UNDER   |       1 |     5 |
+      | Japan         | X       |       2 |      1X |      12 |    10 |
+      | Norway        | X2      | LINE    | OVER    | UNDER   |    25 |
