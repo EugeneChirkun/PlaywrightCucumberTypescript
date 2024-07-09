@@ -9,6 +9,7 @@ import SportsMainPage from './sports/sportsMainPage'
 import SearchPage from "./menus/searchPage";
 import GamesMainPage from "./games/gamesMainPage";
 import BetBuilderPage from "./sports/betBuilderPage";
+import FootballMatchTablePage from "./sports/footballMatchTablePage";
 
 
 function getAllPages(page: Page, context: BrowserContext) {
@@ -22,6 +23,7 @@ function getAllPages(page: Page, context: BrowserContext) {
         searchPage: new SearchPage(page, context),
         gamesMainPage: new GamesMainPage(page, context),
         betBuilderPage: new BetBuilderPage(page, context),
+        footballMatchTablePage: new FootballMatchTablePage(page, context),
     };
 }
 

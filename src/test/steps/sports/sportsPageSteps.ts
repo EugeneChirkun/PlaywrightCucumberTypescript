@@ -88,7 +88,7 @@ When('the user clicks on the {string} button', async function (this: CustomWorld
         case 'Sports':
             await this.allPagesObj?.sportsMainPage.getSportsTopNavBar()?.sports.click();
             break;
-        case 'BetBuilder':
+        case 'Bet Builder':
             await this.allPagesObj?.sportsMainPage.getSportsTopNavBar()?.betBuilder.click();
             break;
         case 'In-play':
