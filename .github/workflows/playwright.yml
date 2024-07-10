@@ -1,39 +1,27 @@
-name: Run Playwright tests
-
+name: Playwright Tests
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [ main, master ]
   pull_request:
-    branches:
-      - main
-      - master
-
+    branches: [ main, master ]
 jobs:
   test:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
-
+          node-version: 16
       - name: Install dependencies
-        run: npm install
-
-      - name: Run Playwright tests
-        run: npm run run:all
-
-      - name: Generate test report
-        run: npm run generate:report
-
-      - name: Upload test report
-        uses: actions/upload-artifact@v2
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Cucumber tests
+        run: npm test
+      - uses: actions/upload-artifact@v3
+        if: always()
         with:
-          name: cucumber-report
-          path: report/cucumber_report.json
+          name: Report
+          path: test-results
+          retention-days: 2
