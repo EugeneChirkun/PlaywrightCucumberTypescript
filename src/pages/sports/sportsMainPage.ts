@@ -26,8 +26,8 @@ export default class SportsMainPage extends BasePage {
             inPlay: page.locator('.main-nav').getByRole('link', { name: 'in-play' }),
             virtual: page.locator('.main-nav').getByRole('link', { name: 'virtual' }),
             eSport: page.locator('.main-nav').getByRole('link', { name: 'esport' }),
-            casino: page.locator('.main-nav').getByRole('link', { name: 'casino' }),
-            liveCasino: page.locator('.main-nav').getByRole('link', { name: 'live casino' }),
+            casino: page.locator('.main-nav').getByRole('link', { name: 'casino', exact: true }),
+            liveCasino: page.locator('.main-nav').getByRole('link', { name: 'live casino', exact: true }),
             lvBetPot: page.locator('.main-nav').getByRole('link', { name: 'LV BET Pot' })
         }
     }
@@ -51,6 +51,7 @@ export default class SportsMainPage extends BasePage {
         switch (itemName) {
             case 'Sports':
                 await expect(this.sportsTopNavBar.sports).toBeVisible;
+                await this.takeScreenshot();
                 break;
             case 'BetBuilder':
                 await expect(this.sportsTopNavBar.betBuilder).toBeVisible;
@@ -77,6 +78,7 @@ export default class SportsMainPage extends BasePage {
             default:
                 throw new Error(`No matching ${itemName} page found`);
         }
-
+        await this.takeScreenshot();
+        console.log(`Checking ${itemName} visibility on sports page top navigation bar`);
     }
 }

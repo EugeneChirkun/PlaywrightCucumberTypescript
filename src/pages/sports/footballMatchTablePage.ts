@@ -1,5 +1,6 @@
 import BasePage from "../basePage";
 import { BrowserContext, Locator, Page } from "playwright";
+import CustomWorld from "../../support/world";
 
 export default class FootballMatchTablePage extends BasePage {
     public page: Page;
@@ -13,7 +14,7 @@ export default class FootballMatchTablePage extends BasePage {
     }
 
     async gamesTableItemsCount() {
-        await this.page.waitForTimeout(3000)
+        await this.page.waitForLoadState('networkidle')
         return await this.gamesTableLine.count();
     }
 }

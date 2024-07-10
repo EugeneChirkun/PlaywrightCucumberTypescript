@@ -1,21 +1,26 @@
 {
   "name": "watechtask",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "run:all": "cucumber-js test/**/*.feature -f json:report/cucumber_report.json --parallel 4",
+    "run:all": "cucumber-js test/**/*.feature -f json:report/cucumber_report.json --parallel 4 --retry 2",
     "run:current": "cucumber-js test/**/*.feature --tags @Current -f json:report/cucumber_report.json",
     "generate:report": "node reporter.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Eugene Chirkun",
   "license": "ISC",
-  "description": "",
+  "description": "Test project. LVBET.COM test automation in training purposes.",
   "devDependencies": {
     "@cucumber/cucumber": "^10.8.0",
     "@playwright/test": "^1.45.1",
     "@types/node": "^20.14.10",
     "ts-node": "^10.9.2",
     "cucumber-html-reporter": "7.1.1"
+  },
+  "dependencies": {
+    "cross-env": "7.0.3",
+    "dotenv": "16.3.1",
+    "ts-node": "10.9.1",
+    "unique-names-generator": "4.7.1"
   }
 }

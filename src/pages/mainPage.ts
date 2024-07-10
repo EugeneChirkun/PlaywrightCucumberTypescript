@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { Page, BrowserContext, Locator } from 'playwright';
+import { BrowserContext, Locator, Page } from 'playwright';
 import BasePage from './basePage'
 import LvBetActive from './modals/lvBetActive';
 import * as consts from '../testData/constants/consts'
@@ -43,7 +43,7 @@ export default class MainPage extends BasePage {
         await this.page.goto(consts.APP_BASE_URL);
     }
 
-    async openGamburgerMenu() {
+    async openHamburgerMenu() {
         await expect(this.topNavBar.hamburgerMenu).toBeEnabled();
         await this.topNavBar.hamburgerMenu.click()
     }
@@ -85,6 +85,8 @@ export default class MainPage extends BasePage {
             default:
                 throw new Error(`No matching ${menuItem} page not found`);
         }
+        console.log(`Opened ${menuItem} via top menu bar from main page`);
+        await this.takeScreenshot();
     }
 
     async initiateSearch() {

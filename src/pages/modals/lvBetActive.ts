@@ -1,6 +1,7 @@
 import { expect } from '@playwright/test';
-import { Page, BrowserContext, Locator } from 'playwright';
+import { BrowserContext, Locator, Page } from 'playwright';
 import BasePage from "../basePage";
+import CustomWorld from "../../support/world";
 
 
 export default class LvBetActive extends BasePage {

@@ -1,12 +1,12 @@
 import { expect } from '@playwright/test';
-import { Page, BrowserContext, Locator } from 'playwright';
+import { BrowserContext, Locator, Page } from 'playwright';
 import BasePage from "../basePage";
 
 
 export default class CookiesModal extends BasePage {
     public page: Page;
 
-    private mamageCookiesSettingsBtn: Locator;
+    private manageCookiesSettingsBtn: Locator;
     private acceptCookiesBtn: Locator;
 
     private cookiesPolicyHeader: Locator;
@@ -14,9 +14,8 @@ export default class CookiesModal extends BasePage {
     constructor(page: Page, context: BrowserContext) {
         super(page, context);
 
-        this.mamageCookiesSettingsBtn = page.getByText('Manage settings');
+        this.manageCookiesSettingsBtn = page.getByText('Manage settings');
         this.acceptCookiesBtn = page.getByText('Accept all cookies');
-
         this.cookiesPolicyHeader = page.getByText('Cookies Policy');
     }
 

@@ -43,6 +43,6 @@ Then('the user should see options to select', async function (this: CustomWorld,
 });
 
 Then('the user should see the dashboard headline {string}', async function (this: CustomWorld, headline: string) {
-
+    await this.allPagesObj?.betBuilderPage.isDashboardHeadlineVisible(headline);
 });
 

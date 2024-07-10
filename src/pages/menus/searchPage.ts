@@ -18,6 +18,8 @@ export default class SearchPage extends BasePage {
     async searchGame(gameName: string) {
         await this.searchInput.fill(gameName);
         await this.searchInput.press('Enter')
+        await this.takeScreenshot();
+        console.log(`Searching for ${gameName}`);
     }
 
     async isSearchResultDisplayed(gameName: string) {
@@ -26,5 +28,7 @@ export default class SearchPage extends BasePage {
 
     async selectGameFromSearchResultsList(gameName: string) {
         await this.searchResultsList.locator('.search-panel-list-content').locator(`h4:text("${gameName}")`).first().click();
+        await this.takeScreenshot();
+        console.log(`Selecting first match with ${gameName} from search results list`);
     }
 }
