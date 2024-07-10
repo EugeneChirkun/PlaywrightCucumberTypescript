@@ -21,14 +21,14 @@ export default class SportsMainPage extends BasePage {
         super(page, context);
 
         this.sportsTopNavBar = {
-            sports: page.locator('.main-nav').getByRole('link', { name: 'sports' }),
-            betBuilder: page.locator('.main-nav').getByRole('link', { name: 'betbuilder' }),
-            inPlay: page.locator('.main-nav').getByRole('link', { name: 'in-play' }),
-            virtual: page.locator('.main-nav').getByRole('link', { name: 'virtual' }),
-            eSport: page.locator('.main-nav').getByRole('link', { name: 'esport' }),
-            casino: page.locator('.main-nav').getByRole('link', { name: 'casino', exact: true }),
-            liveCasino: page.locator('.main-nav').getByRole('link', { name: 'live casino', exact: true }),
-            lvBetPot: page.locator('.main-nav').getByRole('link', { name: 'LV BET Pot' })
+            sports: page.locator('.main-nav').locator('a.main-nav-links__entry[href="/sports/en/pre-matches/"]'),
+            betBuilder: page.locator('.main-nav').locator('a.main-nav-links__entry[href="/sports/en/betbuilder/"]'),
+            inPlay: page.locator('.main-nav').locator('a.main-nav-links__entry[href="/sports/en/live/"]'),
+            virtual: page.locator('.main-nav').locator('a.main-nav-links__entry[href="/sports/en/virtual-sports/"]'),
+            eSport: page.locator('.main-nav').locator('a.main-nav-links__entry[href="/sports/en/esport/"]'),
+            casino: page.locator('.main-nav').locator('a.main-nav-links__entry[href="https://lvbet.com/en/casino/"]'),
+            liveCasino: page.locator('.main-nav').locator('a.main-nav-links__entry[href="https://lvbet.com/en/live-casino/"]'),
+            lvBetPot: page.locator('.main-nav').locator('a.main-nav-links__entry[href="/sports/en/bet-on-action/"]')
         }
     }
 

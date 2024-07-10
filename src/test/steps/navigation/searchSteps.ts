@@ -1,10 +1,9 @@
-Fimport { Then, When } from '@cucumber/cucumber';
+import { Then, When } from '@cucumber/cucumber';
 import CustomWorld from '../../../support/world';
 
 When('the user enters the name of a game {string} in the search bar', async function (this: CustomWorld, gameName: string) {
     await this.allPagesObj?.mainPage.initiateSearch();
     await this.allPagesObj?.searchPage.searchGame(gameName);
-    await this.page.waitForLoadState('networkidle')
 });
 
 Then('the {string} appeared in the search results', async function (this: CustomWorld, gameName: string) {

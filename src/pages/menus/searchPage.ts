@@ -18,6 +18,7 @@ export default class SearchPage extends BasePage {
     async searchGame(gameName: string) {
         await this.searchInput.fill(gameName);
         await this.searchInput.press('Enter')
+        await this.page.waitForLoadState('domcontentloaded')
         await this.takeScreenshot();
         console.log(`Searching for ${gameName}`);
     }

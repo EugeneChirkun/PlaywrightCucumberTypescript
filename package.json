@@ -2,7 +2,7 @@
   "name": "watechtask",
   "version": "1.0.0",
   "scripts": {
-    "run:all": "cucumber-js test/**/*.feature -f json:report/cucumber_report.json --parallel 4 --retry 2",
+    "run:all": "cucumber-js test/**/*.feature -f json:report/cucumber_report.json --parallel 4",
     "run:current": "cucumber-js test/**/*.feature --tags @Current -f json:report/cucumber_report.json",
     "generate:report": "node reporter.ts"
   },

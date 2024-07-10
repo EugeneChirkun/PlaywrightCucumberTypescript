@@ -14,7 +14,7 @@ export default class FootballMatchTablePage extends BasePage {
     }
 
     async gamesTableItemsCount() {
-        await this.page.waitForLoadState('networkidle')
+        await this.page.waitForTimeout(3000)
         return await this.gamesTableLine.count();
     }
 }
