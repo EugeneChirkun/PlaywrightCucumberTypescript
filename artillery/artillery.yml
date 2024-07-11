@@ -1,0 +1,107 @@
+config:
+  target: "https://lvbet.com"
+  phases:
+    - name: constantArrival
+      duration: 60
+      arrivalRate: 10
+
+    - name: rampUp
+      duration: 60
+      arrivalRate: 10
+      rampTo: 50
+
+    - name: fixedArrival
+      duration: 60
+      arrivalRate: 50
+
+    - name: peakLoad
+      duration: 120
+      arrivalRate: 50
+
+    - name: rampDown
+      duration: 60
+      arrivalRate: 50
+      rampTo: 10
+
+    - name: recovery
+      duration: 60
+      arrivalRate: 10
+
+scenarios:
+  - name: "Open main page"
+    flow:
+      - get:
+          url: "/casino/"
+
+  - name: "Open SPORTS page"
+    flow:
+      - get:
+          url: "/sports/en/"
+
+  - name: "Get games list"
+    flow:
+      - get:
+          url: "/client-api/v4/betbuilder/?country=pl&lang=en&parent_id=1"
+
+  - name: "Get list of football matches from Sports dashboard"
+    flow:
+      - get:
+          url: "/client-api/v4/sports-groups/1?country=pl&lang=en"
+
+  - name: "Get list of football matches for Europe"
+    flow:
+      - get:
+          url: "/client-api/v4/matches/competition-view/?lang=en&sports_groups_ids=35259"
+
+  - name: "Get list of football matches for World"
+    flow:
+      - get:
+          url: "/client-api/v4/matches/competition-view/?lang=en&sports_groups_ids=35164"
+
+  - name: "Get list of football matches for USA"
+    flow:
+      - get:
+          url: "/client-api/v4/matches/competition-view/?lang=en&sports_groups_ids=35240"
+
+  - name: "Place single bet"
+    flow:
+      - post:
+          url: "https://betslips.lvbet.com/client-betslips/v1/validate/single/?bet_mode=real"
+          json:
+            selections:
+              - "bc:4781968995"
+
+  - name: "Place combi bet"
+    flow:
+      - post:
+          url: "https://betslips.lvbet.com/client-betslips/v1/validate/combi/?bet_mode=rate_boost"
+          json:
+            selections:
+              - "bc:4781968995"
+              - "bc:4781973332"
+
+  - name: "Place System bet"
+    flow:
+      - post:
+          url: "https://betslips.lvbet.com/client-betslips/v1/validate/system/?bet_mode=real"
+          json:
+            selections:
+              - "bc:4782171719"
+              - "bc:4781968995"
+              - "bc:4782050640"
+              - "bc:4782013510"
+              - "bc:4782171718"
+              - "bc:4783500938"
+              - "bc:4783500949"
+            bankers: []
+            variants: [1, 2, 3, 4, 5, 6, 7]
+
+  - name: "Select Brazil in BetBuilder"
+    flow:
+      - get:
+          url: "/client-api/v4/betbuilder/?country=pl&lang=en&parent_id=35162"
+
+  - name: "Select USA in BetBuilder"
+    flow:
+      - get:
+          url: "/client-api/v4/betbuilder/?country=pl&lang=en&parent_id=35240"
