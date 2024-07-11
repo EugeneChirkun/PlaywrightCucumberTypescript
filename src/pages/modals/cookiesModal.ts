@@ -8,7 +8,6 @@ export default class CookiesModal extends BasePage {
 
     private manageCookiesSettingsBtn: Locator;
     private acceptCookiesBtn: Locator;
-
     private cookiesPolicyHeader: Locator;
 
     constructor(page: Page, context: BrowserContext) {
@@ -16,7 +15,7 @@ export default class CookiesModal extends BasePage {
 
         this.manageCookiesSettingsBtn = page.getByText('Manage settings');
         this.acceptCookiesBtn = page.getByText('Accept all cookies');
-        this.cookiesPolicyHeader = page.getByText('Cookies Policy');
+        this.cookiesPolicyHeader = page.locator('csb-modal-header__title:has-text("Cookies Policy")')
     }
 
     async acceptCookies() {
@@ -24,12 +23,12 @@ export default class CookiesModal extends BasePage {
         await this.acceptCookiesBtn.click();
     }
 
-    async isCookiesMsgIsVisible() {
-        await expect(this.cookiesPolicyHeader).toBeVisible();
+    async isCookiesMsgIsVisible(): Promise<boolean> {
+        return await this.cookiesPolicyHeader.isVisible();
     }
 
     async acceptCookiesIfVisible() {
-        if (await this.isCookiesMsgIsVisible) {
+        if (this.isCookiesMsgIsVisible) {
             await this.acceptCookiesBtn.click();
         }
     }

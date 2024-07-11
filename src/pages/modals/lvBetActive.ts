@@ -8,13 +8,13 @@ export default class LvBetActive extends BasePage {
     public page: Page;
 
     private continueWithoutLoginBtn: Locator;
-    private goToLvBetPlBtn: Locator;
+    private goToLvBetLocalBtn: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         super(page, context);
 
         this.continueWithoutLoginBtn = page.getByTestId('without-logging-in');
-        this.goToLvBetPlBtn = page.getByTestId('redirect-lvbet-pl');
+        this.goToLvBetLocalBtn = page.getByTestId(/^redirect-lvbet-/);
     }
 
     async continueWithoutLogin() {
@@ -23,13 +23,19 @@ export default class LvBetActive extends BasePage {
     }
 
     async continueWithoutLoginIfVisible() {
-        if (await this.continueWithoutLoginBtn.isVisible()) {
-            await this.continueWithoutLoginBtn.click();
+        if (await this.isLoginVisible()) {
+            await this.continueWithoutLoginBtn.scrollIntoViewIfNeeded();
+            await this.continueWithoutLoginBtn.click({ timeout: 60000 })
         }
     }
 
-    async goToLvBetPl() {
-        await expect(this.goToLvBetPlBtn).toBeEnabled();
-        await this.goToLvBetPlBtn.click();
+    async goToLvBetLocal() {
+        await expect(this.goToLvBetLocalBtn).toBeEnabled();
+        await this.goToLvBetLocalBtn.click();
+    }
+
+    async isLoginVisible(): Promise<boolean> {
+        return await this.continueWithoutLoginBtn.isVisible();
+
     }
 }

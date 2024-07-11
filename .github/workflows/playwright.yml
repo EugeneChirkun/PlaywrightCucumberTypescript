@@ -36,9 +36,23 @@ jobs:
         if: always()
         run: npm run generate:report
 
-      - name: Upload test report
+      - name: Upload cucumber report json
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: cucumber-report
+          name: cucumber-json
           path: report/cucumber_report.json
+
+      - name: Upload cucumber html report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-artefacts
+          path: artefacts/
+
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-artefacts
+          path: artefacts/
