@@ -51,7 +51,7 @@ setParallelCanAssign(function (pickleInQuestion, picklesInProgress) {
 });
 
 const browserOptions: LaunchOptions = {
-    headless: false
+    headless: true
 };
 
 BeforeAll(async function () {
