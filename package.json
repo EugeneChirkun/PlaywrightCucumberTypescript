@@ -14,11 +14,11 @@
     "@cucumber/cucumber": "^10.8.0",
     "@playwright/test": "^1.45.1",
     "@types/node": "^20.14.10",
-    "ts-node": "^10.9.2",
-    "cucumber-html-reporter": "7.1.1"
+    "cross-env": "^7.0.3",
+    "cucumber-html-reporter": "7.1.1",
+    "ts-node": "^10.9.2"
   },
   "dependencies": {
-    "cross-env": "7.0.3",
     "dotenv": "16.3.1",
     "ts-node": "10.9.1",
     "unique-names-generator": "4.7.1"
