@@ -3,6 +3,7 @@ import { DataTable, Then, When } from "@cucumber/cucumber";
 import { expect } from "@playwright/test";
 
 Then('the user should see at least one sport to select', async function (this: CustomWorld) {
+    await this.page.waitForLoadState('domcontentloaded')
     expect(await this.allPagesObj?.betBuilderPage.betBuilderDashboardItemsCount()).toBeGreaterThanOrEqual(1);
 });
 
@@ -27,6 +28,7 @@ When('each region should display a match counter next to its name', async functi
 
 When('the user is in the Football section of Bet Builder', async function (this: CustomWorld) {
     await this.allPagesObj?.betBuilderPage.navigateToFootballBetBuilder();
+    await this.page.waitForLoadState('domcontentloaded');
     await this.allPagesObj?.lvBetActive.continueWithoutLoginIfVisible();
     await this.allPagesObj?.cookiesModal.acceptCookiesIfVisible();
 });

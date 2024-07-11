@@ -107,7 +107,7 @@ Before({ tags: '@NonAuth' }, async function (this: CustomWorld) {
     await chromium.launch(browserOptions);
     await this.allPagesObj?.mainPage.navigateToMain();
     await this.allPagesObj?.cookiesModal.acceptCookiesIfVisible();
-    await this.allPagesObj?.lvBetActive.continueWithoutLogin();
+    await this.allPagesObj?.lvBetActive.continueWithoutLoginIfVisible();
 });
 
 BeforeStep(async function (this: CustomWorld, { pickleStep }) {

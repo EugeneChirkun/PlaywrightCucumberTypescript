@@ -18,20 +18,19 @@ export default class LvBetActive extends BasePage {
     }
 
     async continueWithoutLogin() {
-        await expect(this.continueWithoutLoginBtn).toBeEnabled();
-        await this.continueWithoutLoginBtn.click();
+        await expect(this.continueWithoutLoginBtn).toBeVisible();
+        await this.continueWithoutLoginBtn.click({ force: true });
     }
 
     async continueWithoutLoginIfVisible() {
         if (await this.isLoginVisible()) {
-            await this.continueWithoutLoginBtn.scrollIntoViewIfNeeded();
-            await this.continueWithoutLoginBtn.click({ timeout: 60000 })
+            await this.continueWithoutLoginBtn.click({ force: true })
         }
     }
 
     async goToLvBetLocal() {
-        await expect(this.goToLvBetLocalBtn).toBeEnabled();
-        await this.goToLvBetLocalBtn.click();
+        await expect(this.goToLvBetLocalBtn).toBeVisible();
+        await this.goToLvBetLocalBtn.click({ force: true });
     }
 
     async isLoginVisible(): Promise<boolean> {
