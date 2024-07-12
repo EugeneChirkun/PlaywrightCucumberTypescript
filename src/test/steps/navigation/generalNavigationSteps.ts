@@ -3,7 +3,8 @@ import CustomWorld from "../../../support/world";
 
 When('the user is on the Sports page', async function (this: CustomWorld) {
     await this.allPagesObj?.sportsMainPage.navigateToSports();
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.page.reload();
+    await this.page.waitForLoadState('load');
     await this.allPagesObj?.lvBetActive.continueWithoutLoginIfVisible();
     await this.allPagesObj?.cookiesModal.acceptCookiesIfVisible();
 });

@@ -40,7 +40,8 @@ For performance and load testing purposes Artillery.io was added.
 
 ## GitHub Actions workflows
 
-Was added two workflows for GitHub Actions. Workflows triggered on push and pull request in `master` branch. 
+Was added two workflows for GitHub Actions. Workflows triggered on push and pull request in `master` branch 
 One workflow for running Playwright tests and creating reports, second workflow for performance and load testing using Artillery.io.
 
-
+## Test cases
+Test cases are written using Gherkin syntax, for further automation using Cucumber. Stored in .xlsx and placed in `test cases EXCEL` directory in project root folder.

@@ -26,7 +26,7 @@ const workingDir: string = process.cwd();
 declare global {
     namespace NodeJS {
         interface Global {
-            browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser; // change to your favorite browser
+            browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
             customBrowser: ChromiumBrowser;
             scrPath?: null;
             videosPath?: null;
@@ -104,8 +104,9 @@ Before({ tags: '@Ignore' }, async function (this: CustomWorld) {
 });
 
 Before({ tags: '@NonAuth' }, async function (this: CustomWorld) {
-    await chromium.launch(browserOptions);
     await this.allPagesObj?.mainPage.navigateToMain();
+    await this.page.reload();
+    await this.page.waitForLoadState('load');
     await this.allPagesObj?.cookiesModal.acceptCookiesIfVisible();
     await this.allPagesObj?.lvBetActive.continueWithoutLoginIfVisible();
 });
