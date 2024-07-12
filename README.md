@@ -1,4 +1,21 @@
-## Introduction
+# General overview
+
+### Test cases
+Test cases are written using Gherkin syntax, for further automation using Cucumber. Stored in .xlsx and placed in `test cases EXCEL` directory in project root folder.
+
+### Challenges Faced During the Task
+- Test Stability: The site sometimes goes down and becomes unavailable, affecting test stability.
+- User Registration: Testing on the global site presented challenges with user registration. The .pl domain required personal data such as ID numbers for registration.
+- Testing on Production: Without having Swagger or any other documentation with API endpoints, implementing load and performance testing using Artillery.io was challenging.
+- Domain-Specific Challenges: The domain of the application, gambling, and bets, has specific regulations and behaviors which added complexity to the testing process.
+
+### Additional Challenges
+
+- Gambling and Betting Regulations: The domain has strict regulations and compliance requirements which can affect how tests are executed and what data can be used.
+- Data Sensitivity: Handling sensitive user data during tests requires additional security measures and considerations.
+- Dynamic Content: The nature of betting sites means that content can change frequently, requiring tests to be robust and adaptable to these changes.
+
+# Introduction
 
 This suite supports the end to end testing of https://lvbet.com/.
 
@@ -42,6 +59,3 @@ For performance and load testing purposes Artillery.io was added.
 
 Was added two workflows for GitHub Actions. Workflows triggered on push and pull request in `master` branch 
 One workflow for running Playwright tests and creating reports, second workflow for performance and load testing using Artillery.io.
-
-## Test cases
-Test cases are written using Gherkin syntax, for further automation using Cucumber. Stored in .xlsx and placed in `test cases EXCEL` directory in project root folder.
