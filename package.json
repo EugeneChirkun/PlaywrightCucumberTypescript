@@ -2,9 +2,9 @@
   "name": "watechtask",
   "version": "1.0.0",
   "scripts": {
-    "run:all": "cucumber-js test/**/*.feature -f json:report/cucumber_report.json --parallel 2",
-    "run:current": "cucumber-js test/**/*.feature --tags @Current -f json:report/cucumber_report.json",
-    "generate:report": "node reporter.ts"
+    "run:all": "cucumber-js test/**/*.feature",
+    "run:current": "cucumber-js test/**/*.feature --tags @Current",
+    "generate:report": "node src/support/reporters/reporter.ts"
   },
   "keywords": [],
   "author": "Eugene Chirkun",
@@ -13,14 +13,15 @@
   "devDependencies": {
     "@cucumber/cucumber": "^10.8.0",
     "@playwright/test": "^1.45.1",
-    "@types/node": "^20.14.10",
-    "cross-env": "^7.0.3",
-    "cucumber-html-reporter": "7.1.1",
+    "@types/node": "20.1.0",
+    "cross-env": "7.0.3",
+    "cucumber-html-reporter": "^6.0.0",
+    "multiple-cucumber-html-reporter": "^3.6.2",
     "ts-node": "^10.9.2"
   },
   "dependencies": {
     "dotenv": "16.3.1",
-    "ts-node": "10.9.1",
+    "ts-node": "10.9.2",
     "unique-names-generator": "4.7.1"
   }
 }
