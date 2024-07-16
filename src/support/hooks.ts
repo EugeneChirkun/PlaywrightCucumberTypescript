@@ -106,7 +106,7 @@ Before({ tags: '@Ignore' }, async function (this: CustomWorld) {
 Before({ tags: '@NonAuth' }, async function (this: CustomWorld) {
     await this.allPagesObj?.mainPage.navigateToMain();
     await this.page.reload();
-    await this.page.waitForLoadState('load');
+    await this.page.waitForLoadState('domcontentloaded');
     await this.allPagesObj?.cookiesModal.acceptCookiesIfVisible();
     await this.allPagesObj?.lvBetActive.continueWithoutLoginIfVisible();
 });

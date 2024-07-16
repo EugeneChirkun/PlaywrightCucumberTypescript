@@ -46,7 +46,7 @@ When('the user hovers over the {} menu item', async function (this: CustomWorld,
 });
 
 Then('the {} should change its background color to yellow {}', async function (this: CustomWorld, menuItem: string, colorToCheck: string) {
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForLoadState('domcontentloaded');
     let textElement;
     switch (menuItem) {
         case 'Sports':
