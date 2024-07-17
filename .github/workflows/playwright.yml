@@ -46,12 +46,12 @@ jobs:
         if: always()
         run: npm run generate:report
 
-      - name: Upload cucumber report json
+      - name: Upload test report
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: cucumber-json
-          path: test-report/cucumber_report.json
+          name: multiple-cucumber-test-report
+          path: test-report/
 
       - name: Upload test artifacts
         if: always()
@@ -59,3 +59,14 @@ jobs:
         with:
           name: test-artefacts
           path: artefacts/
+
+      - name: ANY REPROT - GH Pages Push - SAME REPO
+        uses: PavanMudigonda/html-reporter-github-pages@v1.3
+        with:
+          test_results: test-report/
+          keep_reports: 20
+          gh_pages: feature/gh-pages-report # BRANCH NAME you like
+          subfolder: docs  # Level 1 Folder Structure you like
+          tool_name: cucumber # Level 2 Folder Structure you like
+          workflow_name: ${{ github.workflow }} # Level 3 Folder Structure you like
+          env: PROD # Level 4 Folder Structure you like
