@@ -1,4 +1,4 @@
-name: Run Playwright tests
+name: Run_Playwright_tests
 
 on:
   push:
@@ -68,6 +68,6 @@ jobs:
           keep_reports: 20
           gh_pages: feature/gh-pages-report # BRANCH NAME you like
           subfolder: docs  # Level 1 Folder Structure you like
-          tool_name: cucumber # Level 2 Folder Structure you like
-          workflow_name: ${{ github.workflow }} # Level 3 Folder Structure you like
-          env: PROD # Level 4 Folder Structure you like
+          #tool_name: cucumber # Level 2 Folder Structure you like
+          #workflow_name: ${{ github.workflow }} # Level 3 Folder Structure you like
+          #env: PROD # Level 4 Folder Structure you like
