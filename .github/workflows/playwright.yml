@@ -62,6 +62,7 @@ jobs:
 
       - name: HTML Preview
         id: html_preview
+        if: always()
         uses: pavi2410/html-preview-action@v2
         with:
           html_file: 'test-report/index.html'
