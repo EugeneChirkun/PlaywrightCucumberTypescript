@@ -43,6 +43,7 @@ jobs:
         run: npm run run:all
 
       - name: Run Failed Playwright tests
+        if: always()
         run: npm run run:failed
 
       - name: Generate test report
