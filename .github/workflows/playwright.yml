@@ -60,7 +60,8 @@ jobs:
           name: test-artefacts
           path: artefacts/
 
-      - name: ANY REPROT - GH Pages Push - SAME REPO
+      - name: Publish report on GH Pages
+        if: always()
         uses: PavanMudigonda/html-reporter-github-pages@v1.3
         with:
           test_results: test-report/
