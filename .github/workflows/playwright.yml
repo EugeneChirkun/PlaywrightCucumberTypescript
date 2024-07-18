@@ -12,6 +12,10 @@ on:
       - master
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -36,6 +40,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Install GitHub CLI
+        run: sudo apt-get install gh -y
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
