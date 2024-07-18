@@ -1,5 +1,5 @@
 {
-  "name": "watechtask",
+  "name": "Playwright_Cucumber_Typescript_Automation",
   "version": "1.0.0",
   "scripts": {
     "run:all": "cucumber-js test/**/*.feature",
