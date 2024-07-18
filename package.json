@@ -1,5 +1,5 @@
 {
-  "name": "Playwright Cucumber Typescript Automation",
+  "name": "playwright-cucumber-typescript-automation",
   "version": "1.0.0",
   "scripts": {
     "run:all": "cucumber-js test/**/*.feature",

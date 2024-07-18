@@ -76,6 +76,6 @@ jobs:
           keep_reports: 20
           gh_pages: gh_pages
           subfolder: docs  # Level 1 Folder Structure you like
-          #tool_name: cucumber # Level 2 Folder Structure you like
-          #workflow_name: ${{ github.workflow }} # Level 3 Folder Structure you like
-          #env: PROD # Level 4 Folder Structure you like
+          tool_name: cucumber # Level 2 Folder Structure you like
+          workflow_name: ${{ github.workflow }} # Level 3 Folder Structure you like
+          env: PROD # Level 4 Folder Structure you like
