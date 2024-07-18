@@ -7,8 +7,6 @@ node_modules/
 cucumber-report.html
 assets
 @rerun.txt
-index.html
 /report
 /.idea
 /artefacts
-/test-report
