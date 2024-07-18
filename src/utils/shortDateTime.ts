@@ -1,0 +1,1 @@
+export const shortDateTime = () => new Date().toISOString().replace(/:/g, '-');
