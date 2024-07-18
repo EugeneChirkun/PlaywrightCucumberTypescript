@@ -4,6 +4,7 @@
   "scripts": {
     "run:all": "cucumber-js test/**/*.feature",
     "run:current": "cucumber-js test/**/*.feature --tags @Current",
+    "run:failed": "cucumber-js -p rerun @rerun.txt",
     "generate:report": "node src/support/reporters/reporter.ts"
   },
   "keywords": [],
