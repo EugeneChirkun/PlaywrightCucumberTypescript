@@ -12,10 +12,6 @@ on:
       - master
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-
 jobs:
   test:
     runs-on: ubuntu-latest
